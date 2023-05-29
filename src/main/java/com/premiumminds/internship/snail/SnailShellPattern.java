@@ -1,5 +1,7 @@
 package com.premiumminds.internship.snail;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 /**
@@ -14,6 +16,8 @@ class SnailShellPattern implements ISnailShellPattern {
    * @return order array of values thar represent a snail shell pattern
    */
   public Future<int[]> getSnailShell(int[][] matrix) {
-    throw new RuntimeException("Not Implemented Yet");
+    final int size = matrix.length;
+    ExecutorService service = Executors.newSingleThreadExecutor();   
+    return service.submit(new SnailPattern(size,matrix));
   };
 }
